@@ -6,6 +6,8 @@ import { Snackbar } from "@mui/material";
 import { useState } from 'react';
 import Addcar from './AddCar';
 import EditCar from "./EditCar";
+import IconButton from '@mui/material/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 function Carlist() {
 
@@ -48,15 +50,14 @@ function Carlist() {
             filterable: false,
             disableColumnMenu: true,
             renderCell: (params: GridCellParams)=> (
-                <button
+                <IconButton aria-label="delete" size="small"
                 onClick={() => {
                     // 사용자가 삭제 확인 창에서 "확인(OK)"을 누르면 삭제 요청 실행
                     if (window.confirm(`Are you sure you want to delete ${params.row.brand} ${params.row.model}?`)) {
                         mutate(params.row._links.car.href);
                     }
-                }}                
-                > Delete
-                </button>
+                }}> <DeleteIcon fontSize="small" />
+                </IconButton>
             ),
         },
 

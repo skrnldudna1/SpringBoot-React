@@ -52,12 +52,11 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.csrf(csrf -> csrf.disable()) // CSRF 비활성화
-                .cors(withDefaults())
-                .authorizeHttpRequests((authorizeHttpRequests)
-                        -> authorizeHttpRequests.anyRequest().permitAll());
+//        http.csrf(csrf -> csrf.disable()) // CSRF 비활성화
+//                .cors(withDefaults())
+//                .authorizeHttpRequests((authorizeHttpRequests)
+//                        -> authorizeHttpRequests.anyRequest().permitAll());
 
-/*
         http.csrf(csrf -> csrf.disable()) // CSRF 비활성화
                 .cors(withDefaults())
                 .sessionManagement(((sessionManagement) -> sessionManagement.sessionCreationPolicy(SessionCreationPolicy.STATELESS)))
@@ -65,7 +64,6 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST, "/login").permitAll().anyRequest().authenticated())
                 .addFilterBefore(authenticationFilter, UsernamePasswordAuthenticationFilter.class)
                 .exceptionHandling((exceptionHandlering) -> exceptionHandlering.authenticationEntryPoint(exceptionHandler));
-*/
 
         return http.build();
     }

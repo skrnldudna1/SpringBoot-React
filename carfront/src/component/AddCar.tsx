@@ -7,6 +7,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { addCar } from '../api/carapi';
 import { Car } from '../types';
 import CarDialogContent from './CarDialogContent';
+import { Button } from '@mui/material';
 
 
 
@@ -56,7 +57,7 @@ function AddCar() {
     
     return (
         <>
-        <button onClick={handleClickOpen}>New Car</button>
+        <Button onClick={handleClickOpen}>New Car</Button>
 
         <Dialog open={open} onClose={handleClose}>
     {/* 다이얼로그 제목 */}
@@ -64,8 +65,8 @@ function AddCar() {
     <CarDialogContent car = {car} handleChange={handleChange}/>
     <DialogActions>
         {/* 버튼 */}
-        <button onClick={handleClose}>Cancel</button>
-        <button onClick={handleSave}>Save</button>
+        <Button onClick={handleClose}>Cancel</Button>
+        <Button onClick={handleSave}>Save</Button>
 
 
     </DialogActions>
